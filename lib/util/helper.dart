@@ -3,8 +3,8 @@ import 'dart:developer';
 
 import 'package:flutter/services.dart';
 
-class DHelper {
-  const DHelper._();
+class Helper {
+  const Helper._();
 
   /// 拿到当前文件名字 和 行号
   static String getFileInfo() {

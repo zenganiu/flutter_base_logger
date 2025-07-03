@@ -19,8 +19,8 @@ class PrintEntity {
 
   /// 日志条数判断，超限制清除多余
   static void _clearWhenTooMuch() {
-    if (list.length > DLogger.config.maxLimit) {
-      list.removeRange(0, (DLogger.config.maxLimit * 0.2).ceil());
+    if (list.length > Logger.config.maxLimit) {
+      list.removeRange(0, (Logger.config.maxLimit * 0.2).ceil());
     }
   }
 
@@ -46,17 +46,17 @@ class PrintEntity {
       showDetail: false,
     );
 
-    if (hasWriteLog == true && DLogger.config.hasWriteLog) {
+    if (hasWriteLog == true && Logger.config.hasWriteLog) {
       list.add(logEntity);
       _clearWhenTooMuch();
       length.value++;
     }
 
-    if (hasPrintLog == true && DLogger.config.hasPrintLog) {
+    if (hasPrintLog == true && Logger.config.hasPrintLog) {
       final StringBuffer sb = StringBuffer();
-      sb.writeln("${logEntity.type.printFlag()}[${logEntity.startTime.toString()}][${DHelper.getNavigationFile()}]");
+      sb.writeln("${logEntity.type.printFlag()}[${logEntity.startTime.toString()}][${Helper.getNavigationFile()}]");
       if (logEntity.title.isNotEmpty) sb.writeln(title);
-      sb.writeln("\nData:${DHelper.convertJsonString(content)}");
+      sb.writeln("\nData:${Helper.convertJsonString(content)}");
       log(sb.toString());
     }
   }

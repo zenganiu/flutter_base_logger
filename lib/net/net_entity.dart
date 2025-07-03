@@ -105,7 +105,7 @@ class NetEntity extends ChangeNotifier {
     );
 
     //
-    if (hasWriteNet == true && DLogger.config.hasWriteNet) {
+    if (hasWriteNet == true && Logger.config.hasWriteNet) {
       list.add(net);
       _map[api] = net;
       _clearWhenTooMuch();
@@ -113,7 +113,7 @@ class NetEntity extends ChangeNotifier {
     }
 
     //
-    if (hasPrintNet == true && DLogger.config.hasPrintNet) {
+    if (hasPrintNet == true && Logger.config.hasPrintNet) {
       final StringBuffer sb = StringBuffer();
       sb.writeln('${net.type.printFlag()}[${net.startTime}] [$method]${net.api}');
       sb.write('\nHeader: ${net.headers}');
@@ -128,8 +128,8 @@ class NetEntity extends ChangeNotifier {
 
   /// 日志条数判断，超限制清除多余
   static void _clearWhenTooMuch() {
-    if (list.length > DLogger.config.maxLimit) {
-      list.removeRange(0, (DLogger.config.maxLimit * 0.2).ceil());
+    if (list.length > Logger.config.maxLimit) {
+      list.removeRange(0, (Logger.config.maxLimit * 0.2).ceil());
     }
   }
 
