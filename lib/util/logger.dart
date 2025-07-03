@@ -5,12 +5,12 @@ import 'package:flutter_base_logger/print/print_type.dart';
 import 'package:flutter_base_logger/util/config.dart';
 import 'package:flutter_base_logger/util/helper.dart';
 
-class DLogger {
-  const DLogger._();
+class Logger {
+  const Logger._();
 
   static bool get enabled => _Logger.enabled;
 
-  static DConfig get config => _Logger.config;
+  static Config get config => _Logger.config;
 
   /// 设置日志是否可用
   ///
@@ -132,7 +132,7 @@ class _Logger {
   const _Logger._();
 
   static bool enabled = true;
-  static DConfig config = const DConfig(
+  static Config config = const Config(
     hasReverse: true,
     hasPrintLog: true,
     hasWriteLog: true,
@@ -173,7 +173,7 @@ class _Logger {
   }
 
   static void debug(Object message, {String title = '', bool hasPrintLog = true, hasWriteLog = true}) {
-    if (DLogger.enabled) {
+    if (Logger.enabled) {
       PrintEntity.add(
         type: PrintType.debug,
         content: message,
@@ -185,7 +185,7 @@ class _Logger {
   }
 
   static void info(Object message, {String title = '', bool hasPrintLog = true, hasWriteLog = true}) {
-    if (DLogger.enabled) {
+    if (Logger.enabled) {
       PrintEntity.add(
         type: PrintType.info,
         content: message,
@@ -197,7 +197,7 @@ class _Logger {
   }
 
   static void warn(Object message, {String title = '', bool hasPrintLog = true, hasWriteLog = true}) {
-    if (DLogger.enabled) {
+    if (Logger.enabled) {
       PrintEntity.add(
         type: PrintType.warn,
         content: message,
@@ -209,7 +209,7 @@ class _Logger {
   }
 
   static void error(Object message, {String title = '', bool hasPrintLog = true, hasWriteLog = true}) {
-    if (DLogger.enabled) {
+    if (Logger.enabled) {
       PrintEntity.add(
         type: PrintType.error,
         content: message,
@@ -233,15 +233,15 @@ class _Logger {
     bool? hasPrintNet = true,
     bool? hasWriteNet = true,
   }) {
-    if (DLogger.enabled) {
+    if (Logger.enabled) {
       NetEntity.net(
         type: NetType.http,
         api: api,
         url: url,
         method: method,
-        headers: DHelper.convertJsonString(headers),
-        parameters: DHelper.convertJsonString(parameters),
-        responseBody: DHelper.convertJsonString(responseBody),
+        headers: Helper.convertJsonString(headers),
+        parameters: Helper.convertJsonString(parameters),
+        responseBody: Helper.convertJsonString(responseBody),
         spendTime: spendTime,
         statusCode: statusCode,
         showDetail: showDetail,

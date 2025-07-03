@@ -1,5 +1,5 @@
 /// config
-class DConfig {
+class Config {
   /// 日志记录反转
   final bool hasReverse;
 
@@ -18,7 +18,7 @@ class DConfig {
   /// 记录条数限制，默认100条
   final int maxLimit;
 
-  const DConfig({
+  const Config({
     required this.hasReverse,
     required this.hasPrintLog,
     required this.hasWriteLog,
@@ -27,7 +27,7 @@ class DConfig {
     required this.maxLimit,
   });
 
-  DConfig copyWith({
+  Config copyWith({
     bool? hasReverse,
     bool? hasPrintLog,
     bool? hasWriteLog,
@@ -35,7 +35,7 @@ class DConfig {
     bool? hasWriteNet,
     int? maxLimit,
   }) {
-    return DConfig(
+    return Config(
       hasReverse: hasReverse ?? this.hasReverse,
       hasPrintLog: hasPrintLog ?? this.hasPrintLog,
       hasWriteLog: hasWriteLog ?? this.hasWriteLog,

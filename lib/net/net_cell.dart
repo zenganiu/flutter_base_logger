@@ -162,7 +162,7 @@ class _CopyTextAndButton extends StatelessWidget {
         Expanded(
           child: GestureDetector(
             onTap: () async {
-              await DHelper.copyText(content);
+              await Helper.copyText(content);
               onTapCopy?.call();
             },
             child: Text(content, maxLines: 3, overflow: TextOverflow.ellipsis, textAlign: TextAlign.start),
@@ -191,7 +191,7 @@ class _CopyText extends StatelessWidget {
     return GestureDetector(
       child: Text(content, style: const TextStyle(fontSize: 14, color: Colors.black)),
       onTap: () async {
-        await DHelper.copyText(content);
+        await Helper.copyText(content);
         onTapCopy?.call();
       },
     );
