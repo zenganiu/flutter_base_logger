@@ -1,4 +1,4 @@
-library json_view;
+library;
 
 export 'src/widgets/json_view.dart';
 export 'src/widgets/json_config.dart';
